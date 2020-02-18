@@ -1,7 +1,11 @@
 import 'package:flash_chat/components/rounded_button.dart';
 import 'package:flutter/material.dart';
 
+import 'login_screen.dart';
+import 'registration_screen.dart';
+
 class WelcomeScreen extends StatefulWidget {
+  static const String id = 'welcome_screen';
   @override
   _WelcomeScreenState createState() => _WelcomeScreenState();
 }
@@ -37,9 +41,12 @@ class _WelcomeScreenState extends State<WelcomeScreen>
           children: <Widget>[
             Row(
               children: <Widget>[
-                Container(
-                  child: Image.asset('images/logo.png'),
-                  height: 60.0,
+                Hero(
+                  tag: 'Logo',
+                  child: Container(
+                    child: Image.asset('images/logo.png'),
+                    height: 60.0,
+                  ),
                 ),
                 Text(
                   'Flash Chat',
@@ -57,14 +64,14 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               buttonTitle: 'Log In',
               color: Colors.lightBlueAccent,
               onPressed: () {
-                //Go to login screen.
+                Navigator.pushNamed(context, LoginScreen.id);
               },
             ),
             RoundedButton(
               buttonTitle: 'Register',
               color: Colors.blueAccent,
               onPressed: () {
-                //Go to registration screen.
+                Navigator.pushNamed(context, RegistrationScreen.id);
               },
             ),
           ],
